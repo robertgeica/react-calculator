@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
 
 
 .App {
@@ -69,6 +69,7 @@
 	padding: 3em 0;
 	background-color: #fcfcfc;
 	border-bottom: 1px solid grey;
+	background-color: #f3f3f3;
 	
 }
 
@@ -83,6 +84,7 @@
 	padding-bottom: 2em;
 	font-size: 1.5em;
 	font-weight: 800;
+	text-align: center;
 }
 
 /* header */
@@ -172,3 +174,56 @@
 	background-color: #212020;
 	
 }
+
+.history {
+	display: flex;
+	flex-direction: column;
+	/* border: 1px solid green; */
+	padding: 0 0 0 0;
+
+}
+
+.ul {
+	/* border: 1px solid blue; */
+	list-style-type: none;
+	text-align: left;
+	margin: 0 0 0 1em;
+	padding: 1em 0 1em 0;
+	height: 7em;
+	overflow-y: scroll;
+
+	
+}
+
+.li {
+	width: 100%;
+	/* border: 1px solid red; */
+	font-size: 1.1em;
+	margin: 0;
+	padding: 0;
+}
+
+.history:hover {
+	cursor: pointer;
+}
+
+
+.result {
+	display: flex;
+	margin-right: 1em;
+	justify-content: space-between;
+}
+
+.result p {
+	margin: 0 0 1em 0;
+	
+}
+
+#eq {
+	font-weight: 300;
+}
+
+#finalResult {
+	font-weight: 600;
+}
+

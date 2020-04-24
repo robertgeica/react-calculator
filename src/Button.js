@@ -11,7 +11,7 @@ const Button = ({handleButtonClick, number}) => (
         <button className="button" name="9" onClick={handleButtonClick}>9</button>
         <button className="button" name="/" onClick={handleButtonClick}>/</button>
         <button className="button" name="BACKSPACE" onClick={handleButtonClick}>&#8592;</button>
-        <button className="button" name="DELETE" onClick={handleButtonClick}>C</button><br />
+        <button className="button" name="CLEAR" onClick={handleButtonClick}>C</button><br />
 
         <button className="button" name="4" onClick={handleButtonClick}>4</button>
         <button className="button" name="5" onClick={handleButtonClick}>5</button>

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Button from './Button';
 
@@ -10,7 +9,6 @@ const App = () => {
 
 	const [result, setResult] = useState('');
 	const [history, setHistory]= useState('');
-
 
 	const handleKeyPress = (e) => {
 		e.preventDefault();
@@ -25,19 +23,10 @@ const App = () => {
 		if(nums.includes(e.key)) {
 			setResult(result + e.key);
 			setHistory(`${result}${e.key}`);
-
-			console.log(history);
 		}
 
-	
 	}
 
-	// place input line after last leter
-	// push and keep to history
-	// undefined on button click
-	// check for errors
-
-	
 	const handleButtonClick = (e) => {
 		e.preventDefault();
 
@@ -47,25 +36,48 @@ const App = () => {
 			backspace();	
 		} else if(e.target.name === 'SQRT') {
 			sqrt();	
-		} else if(e.target.name === 'DELETE') {
+		} else if(e.target.name === 'CLEAR') {
 			reset();	
 		} else if(e.target.name === 'POWER') {
 			power();	
 		} else {
 			setResult(result + e.target.name);
-			setHistory(`${result}${e.key}`);
-			
+			setHistory(`${result}${e.target.name}`);
 		}
 
 	}
 
 	
 	const calculate = () => {
-		setResult( eval(result) );
+		try {
+			setResult( eval(result) );
+
+			if(eval(result)) {
+				const text = `${history} = ${eval(result)}`;
+				
+				const obj = {
+				id: Date.now(),
+				calc: text
+				}
+
+				localStorage.setItem(obj.id, JSON.stringify(obj));
+			} else {
+				setResult('');
+			}
+						
+		} catch (e) {
+			setResult('');
+		}
+
 	}
 
+
 	const backspace = () => {
-		setResult(result.slice(0, -1));
+		try {
+			setResult(result.slice(0, -1));
+		} catch (e) {
+			setResult('');
+		}
 	}
 
 	const sqrt = () => {
@@ -80,6 +92,11 @@ const App = () => {
 		setResult('');
 	}
 
+	const resetAll = () => {
+		localStorage.clear();
+		setResult('');
+	}
+
   	return (
     	<div className="App">
 			<Header />
@@ -87,9 +104,11 @@ const App = () => {
 				history={history}
 				handleKeyPress={handleKeyPress}
 				result={result}
+				resetAll={resetAll}
 			/>
 				
 			<Button handleButtonClick={handleButtonClick} />
+					
     	</div>
   	);
 }

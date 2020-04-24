@@ -19,11 +19,11 @@ const Header = () => {
 
             <div className="mode">
                 Basic Mode
-                <i class="fas fa-chevron-down"></i>
+                <i className="fas fa-chevron-down"></i>
             </div>
 
             <div className="options">
-                <i class="fas fa-bars"></i>
+                <i className="fas fa-bars"></i>
             </div>
 
 
